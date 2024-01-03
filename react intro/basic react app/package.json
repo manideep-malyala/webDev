@@ -1,0 +1,11 @@
+{
+  "name": "basic-react-app",
+  "version": "1.0.0",
+  "description": "basic react app",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "manideep malyala",
+  "license": "ISC"
+}
