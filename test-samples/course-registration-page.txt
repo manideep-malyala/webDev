@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Course Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .fee-structure-container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .fee-table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            display: flex; /* Change from flex to block layout */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px; /* Add some padding to prevent elements from touching the screen edges */
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            padding: 5px;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #e53935;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            input, select, textarea {
+                font-size: 14px;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+
+            .btn-container button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>University Course Registration Form</h1>
+        <form id="registrationForm">
+            <!-- Student Information -->
+            <h2>Student Information</h2>
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="fathersName">Father's Name</label>
+            <input type="text" id="fathersName" name="fathersName" required>
+
+            <label for="mothersName">Mother's Name</label>
+            <input type="text" id="mothersName" name="mothersName" required>
+
+            <label for="aadharNumber">Aadhar Number</label>
+            <input type="text" id="aadharNumber" name="aadharNumber" pattern="[0-9]{12}" required>
+
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <!-- Emergency Contact Information -->
+            <h2>Emergency Contact Information</h2>
+            <label for="emergencyContactName">Emergency Contact Name</label>
+            <input type="text" id="emergencyContactName" name="emergencyContactName" required>
+
+            <label for="emergencyContactRelation">Relation</label>
+            <input type="text" id="emergencyContactRelation" name="emergencyContactRelation" required>
+
+            <label for="emergencyContactPhone">Emergency Contact Phone Number</label>
+            <input type="tel" id="emergencyContactPhone" name="emergencyContactPhone" pattern="[0-9]{10}" required>
+
+            <!-- Address Information -->
+            <h2>Address Information</h2>
+            <label for="addressLine1">Address Line 1</label>
+            <input type="text" id="addressLine1" name="addressLine1" required>
+
+            <label for="addressLine2">Address Line 2</label>
+            <input type="text" id="addressLine2" name="addressLine2">
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="zipCode">PIN Code</label>
+            <input type="text" id="zipCode" name="zipCode" pattern="[0-9]{6}" required>
+
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" value="India" readonly>
+
+            <!-- Academic Information -->
+            <h2>Academic Information</h2>
+            <label for="previousDegree">Previous Degree</label>
+            <input type="text" id="previousDegree" name="previousDegree" required>
+
+            <label for="universityName">University/School Name</label>
+            <input type="text" id="universityName" name="universityName" required>
+
+            <label for="percentage">Percentage/CGPA</label>
+            <input type="text" id="percentage" name="percentage" required>
+
+            <label for="passingYear">Year of Passing</label>
+            <input type="text" id="passingYear" name="passingYear" required>
+
+            <!-- Additional Student Preferences -->
+            <h2>Additional Student Preferences</h2>
+            <label for="hostelRequired">Do you require hostel accommodation?</label>
+            <select id="hostelRequired" name="hostelRequired" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="transportRequired">Do you need university transport services?</label>
+            <select id="transportRequired" name="transportRequired" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <!-- Document Upload -->
+            <h2>Document Upload</h2>
+            <label for="documents">Upload required documents (PDF, JPG, PNG)</label>
+            <input type="file" id="documents" name="documents" accept=".pdf, .jpg, .jpeg, .png" required>
+
+          
+
+            <!-- Buttons -->
+            <div class="btn-container">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+      <!-- Fee Structure Table -->
+      <div class="fee-structure-container">
+        <h2>Fee Structure</h2>
+        <table class="fee-table">
+            <tr>
+                <th>Course</th>
+                <th>Amount (INR)</th>
+            </tr>
+            <tr>
+                <td>Bachelor of Technology (B.Tech)</td>
+                <td>1,00,000</td>
+            </tr>
+            <tr>
+                <td>Master of Technology (M.Tech)</td>
+                <td>1,50,000</td>
+            </tr>
+            <tr>
+                <td>Master of Business Administration (MBA)</td>
+                <td>2,00,000</td>
+            </tr>
+            <tr>
+                <td>Bachelor of Arts (BA)</td>
+                <td>50,000</td>
+            </tr>
+            <tr>
+                <td>Bachelor of Science (B.Sc)</td>
+                <td>60,000</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer>
+        <p>University Name | Contact: info@university.com | Phone: +91 1234567890</p>
+    </footer>
+
+</body>
+</html>
